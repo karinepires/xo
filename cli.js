@@ -1,7 +1,6 @@
 #!/usr/bin/env node
-/* eslint-disable import-order/import-order */
+/* eslint-disable import/order */
 'use strict';
-
 var debug = require('debug')('xo');
 
 // Prefer the local installation of XO.
@@ -15,11 +14,11 @@ if (!hasFlag('no-local') && localCLI && localCLI !== __filename) {
 	return;
 }
 
+var path = require('path');
+var spawn = require('child_process').spawn;
 var updateNotifier = require('update-notifier');
 var getStdin = require('get-stdin');
-var spawn = require('child_process').spawn;
 var meow = require('meow');
-var path = require('path');
 var formatterPretty = require('eslint-formatter-pretty');
 var xo = require('./');
 
